@@ -7,8 +7,6 @@
 
 import Foundation
 
-import Foundation
-
 struct PostRequest: NetworkRequest {
     let url: URL?
     let method: HTTPMethod
