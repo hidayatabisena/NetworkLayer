@@ -17,7 +17,7 @@ struct PostRequest: NetworkRequest {
     let timeOutInterval: TimeInterval
     
     init() {
-        self.url = URL(string: "https://2e84f9d6-0dcb-4b93-9238-8b272604b4c1.mock.pstmn.io/v1/posts")
+        self.url = URL(string: APIEndpoint.posts.rawValue)
         self.method = .get
         self.headers = [.contentType: ContentType.json.rawValue]
         self.parameters = nil
@@ -45,4 +45,5 @@ class PostService {
         }
     }
 }
+
 
