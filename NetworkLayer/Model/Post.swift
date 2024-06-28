@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+struct Post: Codable {
+    let title: String
+    let url: String
+    let height: Int
+    let description: String
+}

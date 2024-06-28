@@ -19,7 +19,7 @@ enum HTTPHeader: String {
     case authorization = "Authorization"
 }
 
-enum ContentTYpe: String {
+enum ContentType: String {
     case json = "application/json"
     case xml = "application/xml"
     case formUrlEncoded = "application/x-www-form-urlencoded"
@@ -35,4 +35,8 @@ protocol NetworkRequest {
     var headers: [HTTPHeader: String]? { get }
     var parameters: Encodable? { get }
     var timeOutInterval: TimeInterval { get }
+}
+
+enum APIEndpoint: String {
+    case posts = "https://2e84f9d6-0dcb-4b93-9238-8b272604b4c1.mock.pstmn.io/v1/posts"
 }
