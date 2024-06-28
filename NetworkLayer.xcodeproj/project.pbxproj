@@ -17,6 +17,7 @@
 		537E52362C2E9C3B00B8F12A /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537E52352C2E9C3B00B8F12A /* Post.swift */; };
 		537E52392C2E9ED400B8F12A /* PostVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537E52382C2E9ED400B8F12A /* PostVM.swift */; };
 		537E523B2C2EA3FD00B8F12A /* NetworkEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537E523A2C2EA3FD00B8F12A /* NetworkEngine.swift */; };
+		537E523F2C2EB8D000B8F12A /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537E523E2C2EB8D000B8F12A /* CardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		537E52352C2E9C3B00B8F12A /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		537E52382C2E9ED400B8F12A /* PostVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostVM.swift; sourceTree = "<group>"; };
 		537E523A2C2EA3FD00B8F12A /* NetworkEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkEngine.swift; sourceTree = "<group>"; };
+		537E523E2C2EB8D000B8F12A /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 		537E52152C2E90BD00B8F12A /* NetworkLayer */ = {
 			isa = PBXGroup;
 			children = (
+				537E523D2C2EB8B900B8F12A /* View */,
 				537E52372C2E9EC800B8F12A /* ViewModel */,
 				537E52342C2E9C2D00B8F12A /* Model */,
 				537E52312C2E9A9500B8F12A /* Services */,
@@ -131,6 +134,14 @@
 				537E52382C2E9ED400B8F12A /* PostVM.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		537E523D2C2EB8B900B8F12A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				537E523E2C2EB8D000B8F12A /* CardView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -204,6 +215,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				537E52282C2E926800B8F12A /* NetworkError.swift in Sources */,
+				537E523F2C2EB8D000B8F12A /* CardView.swift in Sources */,
 				537E52192C2E90BD00B8F12A /* ContentView.swift in Sources */,
 				537E52332C2E9AA400B8F12A /* PostService.swift in Sources */,
 				537E52392C2E9ED400B8F12A /* PostVM.swift in Sources */,

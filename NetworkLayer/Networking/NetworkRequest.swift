@@ -25,10 +25,6 @@ enum ContentType: String {
     case formUrlEncoded = "application/x-www-form-urlencoded"
 }
 
-enum LogLevel {
-    case debug, info, warning, error
-}
-
 protocol NetworkRequest {
     var url: URL? { get }
     var method: HTTPMethod { get }

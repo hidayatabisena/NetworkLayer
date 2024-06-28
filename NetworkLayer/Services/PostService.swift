@@ -7,41 +7,40 @@
 
 import Foundation
 
-struct PostRequest: NetworkRequest {
-    let url: URL?
-    let method: HTTPMethod
-    let headers: [HTTPHeader: String]?
-    let parameters: Encodable?
-    let timeOutInterval: TimeInterval
-    
-    init() {
-        self.url = URL(string: APIEndpoint.posts.rawValue)
-        self.method = .get
-        self.headers = [.contentType: ContentType.json.rawValue]
-        self.parameters = nil
-        self.timeOutInterval = 30
-    }
+enum APIError: Error {
+    case invalidURL
+    case requestFailed
+    case decodingFailed
 }
 
-class PostService {
-    private let networkEngine: NetworkEngineAdapter
+struct Constants {
+    static let baseURL = "https://2e84f9d6-0dcb-4b93-9238-8b272604b4c1.mock.pstmn.io/v1/posts"
+}
+
+class APIService {
+    static let shared = APIService()
     
-    init(networkEngine: NetworkEngineAdapter = NetworkEngine()) {
-        self.networkEngine = networkEngine
-    }
+    private init() {}
     
-    func fetchPosts(completion: @escaping (Result<[Post], NetworkError>) -> Void) {
-        let request = PostRequest()
+    func fetchPosts() async throws -> [Post] {
+        guard let url = URL(string: Constants.baseURL) else {
+            throw APIError.invalidURL
+        }
         
-        networkEngine.invokeEngine(request, decodeTo: [Post].self) { result in
-            switch result {
-            case .success(let posts):
-                completion(.success(posts))
-            case .failure(let error):
-                completion(.failure(error))
-            }
+        let (data, response) = try await URLSession.shared.data(from: url)
+        
+        guard (response as? HTTPURLResponse)?.statusCode == 200 else {
+            throw APIError.requestFailed
+        }
+        
+        do {
+            let decodedPosts = try JSONDecoder().decode([Post].self, from: data)
+            return decodedPosts
+        } catch {
+            throw APIError.decodingFailed
         }
     }
 }
+
 
 
